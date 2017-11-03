@@ -32,7 +32,11 @@ public class DNA {
 				score=score+1;
 			}
 		}
+		
+		//score=Math.pow(1, score);
 		this.fitness = (double)((double)score/size);
+		this.fitness =(Math.pow(4, fitness)-1)/(3);
+		
 		
 	}	
 	char generateRandomChar(){
@@ -46,7 +50,7 @@ public class DNA {
 	{
 		DNA child = new DNA(size,target, random,false);
 		for(int i=0;i<size;i++){
-			child.genes[i] = random.nextDouble() < 0.5 ? genes[i] : other.genes[i];
+			child.genes[i] = random.nextDouble() < 0.5 ? genes[i] : other.genes[i]; //toss a coin 
 		}	
 		return child;
 	}
